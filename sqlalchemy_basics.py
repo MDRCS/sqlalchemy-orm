@@ -49,7 +49,7 @@ from sqlalchemy import MetaData
 
 metadata = MetaData()
 
-from sqlalchemy import Table, Column, Integer, String, Numeric, DateTime
+from sqlalchemy import Table, Column, Integer, String, Numeric
 
 cookies = Table('cookies', metadata,
                 Column('cookie_id', Integer(), primary_key=True),
@@ -75,11 +75,11 @@ cookies = Table('cookies', metadata,
     - Table for user model
 
 """
-
+from sqlalchemy import DateTime
 from datetime import datetime
 
 users = Table('users', metadata,
-              Column('user_id', Integer(),primary_key=True),
+              Column('user_id', Integer(), primary_key=True),
               Column('username', String(15), nullable=False, unique=True),
               Column('email_address', String(255), nullable=False),
               Column('phone', String(20), nullable=False),
@@ -104,3 +104,11 @@ users = Table('users', metadata,
 
     -> so the best practice is to use the callable datetime.now instead of calling the function directly
 """
+
+from sqlalchemy import PrimaryKeyConstraint, CheckConstraint, UniqueConstraint
+
+# we can also define constraints for tables column outside of Table.
+
+PrimaryKeyConstraint('user_id', name='user_pk')
+UniqueConstraint('username', name='uix_username')
+CheckConstraint('unit_cost >= 0.00', name='unit_cost_positive')
