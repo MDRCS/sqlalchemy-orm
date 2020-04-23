@@ -1,5 +1,9 @@
 # sqlalchemy-orm
 
+#### + Database Design :
+
+![database-design](./database_design.png)
+
 #### + install sqlalchemy :
     - without c-extensions:
         --+ During the install, SQLAlchemy will attempt to build some C extensions,

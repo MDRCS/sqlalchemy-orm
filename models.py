@@ -1,7 +1,7 @@
 from sqlalchemy import Integer, MetaData, String, Numeric, DateTime, Table, Column, ForeignKey, BOOLEAN, create_engine
 from datetime import datetime
 
-engine = create_engine('sqlite:///:memory:')
+engine = create_engine('sqlite:///cookies.db')
 metadata = MetaData()
 
 """
