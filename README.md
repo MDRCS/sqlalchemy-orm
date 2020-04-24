@@ -17,3 +17,16 @@
             pip install --global-option=--without-cextensions sqlalchemy
 
 Best practices &amp; Patterns to use SQLAlchemy-CORE &amp; SQLAlchemy ORM, for big applications
+
+###  + ORM       |  Python     | SQLIte
+![typing](./typing-(ORM_Python_SQLite).png)
+
+
+### + ClauseElements - select
+
+![ClauseElements](./ClauseElements.png)
+
+
+### + Successful transaction flow
+
+![transaction-workflow](./transaction_workflow.png)

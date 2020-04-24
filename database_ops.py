@@ -472,3 +472,56 @@ print(get_orders_by_customer('cakeeater', details=True))
 # Gets orders that haven’t shipped yet with details.
 print(get_orders_by_customer('cakeeater', shipped=False, details=True))
 
+"""
+    Exceptions and Transactions
+"""
+from sqlalchemy.exc import IntegrityError
+
+"""
+    :AttributeError
+    We will start with an AttributeError that occurs when you attempt to access an attribute that doesn’t exist.
+    This often occurs when you are attempting to access a column on a ResultProxy that isn’t present.
+    AttributeErrors occur when you try to access an attribute of an object that isn’t present on that object.
+    You’ve probably run into this in normal Python code.
+    I’m singling it out because this is a common error in SQLAlchemy and it’s very easy to miss the reason why it is occuring.
+    To demonstrate this error, let’s insert a record into our users table and run a query against it. Then we’ll try
+    to access a column on that table that we didn’t select in the query”
+
+"""
+
+query = select([users])
+results = conn.execute(query).fetchall()
+
+try:
+    print(results[0].address)
+except AttributeError as error:
+    print("AttributeError !!")
+    # print(error.orig.message, error.params)
+
+"""
+    :IntegrityError
+    Another common SQLAlchemy error is the IntegrityError, which occurs when we try to do something that would violate
+    the constraints configured on a Column or Table. This type of error is commonly encountered in cases
+    where you require something to be unique—for example, if you attempt to create two users with the same username,
+    an IntegrityError will be thrown because usernames in our users table must be unique.
+
+"""
+
+ins = insert(users).values(
+    username="cookiemon",
+    email_address="damon@cookie.com",
+    phone="111-111-1111",
+    password="password"
+)
+
+try:
+    result = conn.execute(ins)
+except IntegrityError as error:
+    print("Integrity Error !!")
+    # print(error.orig.message, error.params)
+
+# NOTE
+# Remember it is best practice to wrap as little code as possible in a try/except block and only catch specific errors.
+# This prevents catching unexpected errors that really should have a different behavior
+# than the catch for the specific error you’re watching for.
+
