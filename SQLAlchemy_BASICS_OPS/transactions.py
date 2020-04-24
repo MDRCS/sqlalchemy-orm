@@ -1,5 +1,5 @@
-from sqlalchemy import Integer, MetaData, String, Numeric, DateTime, Table, Column, ForeignKey, BOOLEAN, create_engine
-from datetime import datetime
+from sqlalchemy import MetaData, create_engine
+
 
 engine = create_engine('sqlite:///cookies_trans.db')
 metadata = MetaData()

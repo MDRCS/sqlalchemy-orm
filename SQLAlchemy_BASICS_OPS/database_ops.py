@@ -1,4 +1,4 @@
-from models import cookies, users, line_items, orders, engine
+from .models import cookies, users, line_items, orders, engine
 from sqlalchemy import insert, select
 
 conn = engine.connect()
