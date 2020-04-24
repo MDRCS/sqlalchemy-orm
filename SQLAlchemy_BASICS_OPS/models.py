@@ -83,7 +83,7 @@ line_items = Table('line_items', metadata,
 # order_id = ForeignKeyConstraint(['order_id'], ['orders.order_id'])
 
 # create all tables and columns defined above
-# metadata.create_all(engine)
+metadata.create_all(engine)
 
 
 engine_emp = create_engine('sqlite:///employees.db')

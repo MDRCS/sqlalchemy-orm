@@ -2,7 +2,7 @@
 
 #### + Database Design :
 
-![database-design](./database_design.png)
+![database-design](./figures/database_design.png)
 
 #### + install sqlalchemy :
     - without c-extensions:
@@ -19,14 +19,21 @@
 Best practices &amp; Patterns to use SQLAlchemy-CORE &amp; SQLAlchemy ORM, for big applications
 
 ###  + ORM       |  Python     | SQLIte
-![typing](./typing-(ORM_Python_SQLite).png)
+![typing](./figures/typing-(ORM_Python_SQLite).png)
 
 
 ### + ClauseElements - select
 
-![ClauseElements](./ClauseElements.png)
+![ClauseElements](./figures/ClauseElements.png)
 
 
 ### + Successful transaction flow
 
-![transaction-workflow](./transaction_workflow.png)
+![transaction-workflow](./figures/transaction_workflow.png)
+
+### + transaction Error
+
+![transaction-workflow](./figures/transaction_error.png)
+
+    + However, if one or more of those statements fail, we can catch that error and use the prior state to roll back back any statements that succeeded.
+     Figure above shows a transaction workflow in error.”
