@@ -1,9 +1,9 @@
 import unittest
 from decimal import Decimal
 
-import mock
-
-from .app import get_orders_by_customer
+import unittest.mock as mock
+from testing_database.db import dal, prep_db
+from testing_database.app import get_orders_by_customer
 
 
 class TestApp(unittest.TestCase):
@@ -33,3 +33,7 @@ class TestApp(unittest.TestCase):
         mock_conn.execute.return_value.fetchall.return_value = self.cookie_orders
         results = get_orders_by_customer('cookiemon')
         self.assertEqual(results, self.cookie_orders)
+
+
+if __name__ == "__main__":
+    TestApp.run()

@@ -1,4 +1,4 @@
-from .db import dal
+from testing_database.db import dal
 from sqlalchemy.sql import select
 
 

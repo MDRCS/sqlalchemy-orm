@@ -2,8 +2,8 @@ import unittest
 
 from decimal import Decimal
 
-from .db import dal, prep_db
-from .app import get_orders_by_customer
+from testing_database.db import dal, prep_db
+from testing_database.app import get_orders_by_customer
 
 
 class TestApp(unittest.TestCase):
@@ -90,3 +90,6 @@ class TestApp(unittest.TestCase):
     def test_orders_by_customer_unshipped_only_details(self):
         results = get_orders_by_customer('cookiemon', False, True)
         self.assertEqual(results, self.cookie_details)
+
+if __name__ == "__main__":
+    TestApp.run()
